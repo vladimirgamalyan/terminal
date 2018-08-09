@@ -65,6 +65,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Setupapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -83,10 +84,25 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Setupapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\serial\impl\list_ports\list_ports_linux.cc" />
+    <ClCompile Include="src\serial\impl\list_ports\list_ports_osx.cc" />
+    <ClCompile Include="src\serial\impl\list_ports\list_ports_win.cc" />
+    <ClCompile Include="src\serial\impl\unix.cc" />
+    <ClCompile Include="src\serial\impl\win.cc" />
+    <ClCompile Include="src\serial\serial.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\json.hpp" />
+    <ClInclude Include="src\rang.hpp" />
+    <ClInclude Include="src\serial\impl\unix.h" />
+    <ClInclude Include="src\serial\impl\win.h" />
+    <ClInclude Include="src\serial\serial.h" />
+    <ClInclude Include="src\serial\v8stdint.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
